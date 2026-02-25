@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
       console.warn("External question fetch failed", error.message);
     }
   }
-  const { board, subject } = req.query;
+  // const { board, subject } = req.query;
 
   const filter = {};
   if (board) filter.examBoard = board;

@@ -1,15 +1,4 @@
 
-export default function ExamSelector({
-  boards,
-  subjects,
-  board,
-  subject,
-  amount,
-  onBoardChange,
-  onSubjectChange,
-  onAmountChange,
-  onStart
-}) {
 export default function ExamSelector({ boards, subjects, board, subject, onBoardChange, onSubjectChange, onStart }) {
   return (
     <section className="selector-card">

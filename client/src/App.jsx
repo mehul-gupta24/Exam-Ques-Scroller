@@ -23,7 +23,7 @@ export default function App() {
 
   const start = async () => {
     const data = await fetchQuestions(board, subject, amount);
-    const data = await fetchQuestions(board, subject);
+    // const data = await fetchQuestions(board, subject);
     setQuestions(data);
     setCurrent(0);
     setStarted(true);
@@ -43,8 +43,6 @@ export default function App() {
           onBoardChange={setBoard}
           onSubjectChange={setSubject}
           onAmountChange={(value) => setAmount(Math.max(10, Math.min(50, Number(value) || 20)))}
-          onBoardChange={setBoard}
-          onSubjectChange={setSubject}
           onStart={start}
         />
       ) : currentQuestion ? (

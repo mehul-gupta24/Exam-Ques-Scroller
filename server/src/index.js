@@ -18,7 +18,7 @@ app.get("/health", (_req, res) => {
 app.use("/api/questions", questionsRoute);
 app.use("/api/interactions", interactionsRoute);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const start = async () => {
   try {
