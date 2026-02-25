@@ -6,10 +6,12 @@ A reel-style exam practice app for **CBSE 10th and 12th** with subject filters, 
 - **MongoDB** + **Mongoose**
 - **Express.js** + **Node.js**
 - **React (Vite)**
+- **Open Trivia DB (external API)** for large question datasets
 
 ## Features
 - Choose exam board: `CBSE 10th` / `CBSE 12th`
 - Pick a subject before starting
+- Pull a large question set from external API (`10-50` questions)
 - Reels-like question navigation (next/previous)
 - 4 options with correct answer feedback after selection
 - Social actions: likes, dislikes, comments, share count
@@ -53,6 +55,15 @@ VITE_API_URL=http://localhost:5000/api
 
 ## API Endpoints
 - `GET /api/questions/meta`
+
+- `GET /api/questions?board=CBSE%2010th&subject=Mathematics&source=external&amount=30`
+- `POST /api/interactions/:questionId/react` with `{ "type": "like" | "dislike" | "share" }`
+- `POST /api/interactions/:questionId/comment` with `{ "text": "..." }`
+
+## Notes
+- External dataset is currently fetched from [Open Trivia DB](https://opentdb.com/).
+- If external API is unavailable, backend falls back to local sample/Mongo data.
+
 - `GET /api/questions?board=CBSE%2010th&subject=Mathematics`
 - `POST /api/interactions/:questionId/react` with `{ "type": "like" | "dislike" | "share" }`
 - `POST /api/interactions/:questionId/comment` with `{ "text": "..." }`

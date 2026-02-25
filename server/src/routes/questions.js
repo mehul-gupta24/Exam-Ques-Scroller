@@ -1,6 +1,7 @@
 import express from "express";
 import { Question } from "../models/Question.js";
 import { sampleQuestions } from "../data/sampleQuestions.js";
+import { fetchExternalQuestions } from "../services/externalQuestionProvider.js";
 
 const router = express.Router();
 
@@ -16,6 +17,18 @@ router.get("/meta", async (_req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  const { board, subject, source = "external", amount = 20 } = req.query;
+
+  if (source === "external") {
+    try {
+      const questions = await fetchExternalQuestions({ board, subject, amount });
+      if (questions.length) {
+        return res.json(questions);
+      }
+    } catch (error) {
+      console.warn("External question fetch failed", error.message);
+    }
+  }
   const { board, subject } = req.query;
 
   const filter = {};

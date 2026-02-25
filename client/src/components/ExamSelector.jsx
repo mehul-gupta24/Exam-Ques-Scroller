@@ -1,3 +1,15 @@
+
+export default function ExamSelector({
+  boards,
+  subjects,
+  board,
+  subject,
+  amount,
+  onBoardChange,
+  onSubjectChange,
+  onAmountChange,
+  onStart
+}) {
 export default function ExamSelector({ boards, subjects, board, subject, onBoardChange, onSubjectChange, onStart }) {
   return (
     <section className="selector-card">
@@ -25,6 +37,18 @@ export default function ExamSelector({ boards, subjects, board, subject, onBoard
             </option>
           ))}
         </select>
+      </label>
+
+      <label>
+        Questions to load (external API)
+        <input
+          type="number"
+          min="10"
+          max="50"
+          step="5"
+          value={amount}
+          onChange={(e) => onAmountChange(e.target.value)}
+        />
       </label>
 
       <button type="button" onClick={onStart} disabled={!board || !subject}>

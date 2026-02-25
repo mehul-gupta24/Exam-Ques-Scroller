@@ -35,6 +35,11 @@ export const fetchMeta = async () => {
   }
 };
 
+export const fetchQuestions = async (board, subject, amount = 20) => {
+  try {
+    const { data } = await api.get("/questions", {
+      params: { board, subject, source: "external", amount }
+    });
 export const fetchQuestions = async (board, subject) => {
   try {
     const { data } = await api.get("/questions", { params: { board, subject } });
