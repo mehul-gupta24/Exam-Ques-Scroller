@@ -55,6 +55,7 @@ VITE_API_URL=http://localhost:5000/api
 
 ## API Endpoints
 - `GET /api/questions/meta`
+
 - `GET /api/questions?board=CBSE%2010th&subject=Mathematics&source=external&amount=30`
 - `POST /api/interactions/:questionId/react` with `{ "type": "like" | "dislike" | "share" }`
 - `POST /api/interactions/:questionId/comment` with `{ "text": "..." }`
@@ -62,6 +63,10 @@ VITE_API_URL=http://localhost:5000/api
 ## Notes
 - External dataset is currently fetched from [Open Trivia DB](https://opentdb.com/).
 - If external API is unavailable, backend falls back to local sample/Mongo data.
+
+- `GET /api/questions?board=CBSE%2010th&subject=Mathematics`
+- `POST /api/interactions/:questionId/react` with `{ "type": "like" | "dislike" | "share" }`
+- `POST /api/interactions/:questionId/comment` with `{ "text": "..." }`
 
 ## Seed Sample Questions
 ```bash

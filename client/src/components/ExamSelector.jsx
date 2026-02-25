@@ -1,3 +1,4 @@
+
 export default function ExamSelector({
   boards,
   subjects,
@@ -9,6 +10,7 @@ export default function ExamSelector({
   onAmountChange,
   onStart
 }) {
+export default function ExamSelector({ boards, subjects, board, subject, onBoardChange, onSubjectChange, onStart }) {
   return (
     <section className="selector-card">
       <h1>CBSE Exam Reels</h1>
